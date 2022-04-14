@@ -1,0 +1,117 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Calculator</title>
+    <style>
+        body
+        {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        div
+        {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+        button
+        {
+            font-size: 50pt;
+            width: 100%;
+            height: 100%;
+            border-radius: 40%;
+        }
+        #result
+        {
+            background-color: rgb(236, 230, 143);
+            font-size: 50pt;
+        }
+        #equals
+        {
+            background-color: green;
+        }
+        #plus,#minus,#multiply,#divide
+        {
+            background-color: yellow;
+        }
+        #clear
+        {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+        <div id='result'></div>
+        <div id='row1'>
+            <button value='1' id='one'>1</button>
+            <button value='2' id='two'>2</button>
+            <button value='3' id='three'>3</button>
+            <button value='4' id='four'>4</button>
+        </div>
+        <div id='row2'>
+            <button value='5' id='five'>5</button>
+            <button value='6' id='six'>6</button>
+            <button value='7' id='seven'>7</button>
+            <button value='8' id='eight'>8</button>
+        </div>
+        <div id='row3'>
+            <button value='9' id='nine'>9</button>
+            <button value='0' id='zero'>0</button>
+            <button value="" id='clear'>C</button>
+            <button value="=" id='equals'>=</button>
+        </div>
+        <div id='row4'>
+            <button value="+" id='plus'>+</button>
+            <button value="-" id='minus'>-</button>
+            <button value="*" id='multiply'>*</button>
+            <button value="/" id='divide'>/</button>
+        </div>
+    <script>
+        let calcToDo = [];
+
+        document.getElementById('equals').addEventListener('click', perfromCalc);
+        document.getElementById('one').addEventListener('click', processBtn);
+        document.getElementById('two').addEventListener('click', processBtn);
+        document.getElementById('three').addEventListener('click', processBtn);
+        document.getElementById('four').addEventListener('click', processBtn);
+        document.getElementById('five').addEventListener('click', processBtn);
+        document.getElementById('six').addEventListener('click', processBtn);
+        document.getElementById('seven').addEventListener('click', processBtn);
+        document.getElementById('eight').addEventListener('click', processBtn);
+        document.getElementById('nine').addEventListener('click', processBtn);
+        document.getElementById('zero').addEventListener('click', processBtn);
+        document.getElementById('plus').addEventListener('click', processBtn);
+        document.getElementById('minus').addEventListener('click', processBtn);
+        document.getElementById('multiply').addEventListener('click', processBtn);
+        document.getElementById('divide').addEventListener('click', processBtn);
+        document.getElementById('clear').addEventListener('click', Clear);
+
+        function processBtn() {
+            calcToDo.push(this.value);
+            document.getElementById('result').innerText = calcToDo.join('');
+            event.preventDefault();
+        }
+
+        function perfromCalc() {
+            const output = calcToDo.join('');
+            document.getElementById('result').innerText = eval(output);
+            calcToDo = [];
+        }
+        function Clear()
+        {
+            calcToDo = [];
+            document.getElementById('result').innerText = '0';
+        }
+    </script>
+</body>
+
+</html>

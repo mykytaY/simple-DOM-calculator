@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>D314 Calculator</title>
+    <script>
+        function getResult()
+        {
+            let firstNum = document.getElementById('firstNum').value;
+            let secondNum = document.getElementById('secondNum').value;
+            let sum = parseInt(firstNum) + parseInt(secondNum);
+            document.getElementById('result').innerText = sum;
+            event.preventDefault();
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="getResult()">
+        <input type="text" id="firstNum" size=5><br>
+        <input type="text" id="secondNum" size=5>
+        <input type="submit" value="+">
+
+
+    </form>
+    <div id="result"></div>
+</body>
+</html>
